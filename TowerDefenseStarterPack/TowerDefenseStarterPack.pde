@@ -30,6 +30,8 @@ Button start;
 
 //Collections of objects
 
+Node[] nodes;
+
 //Images and Gifs
 Gif introAnimation;
 //Fonts
@@ -53,7 +55,7 @@ void initializeModes() {
   rectMode(CENTER);
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
-  mode = INTRO;
+  mode = PLAY;
   //bef,after,frames,speed
   introAnimation = new Gif("introgif2/frame_", "_delay-0.03s.gif",30,2,width/2,height/2,width,height);
   
@@ -63,7 +65,7 @@ void initializeVariables() {
   //Load Images & Gifs
 
   //Load Fonts
-basic = createFont("basicFont/Just Squash.otf",24);
+basic = createFont("basicFont/Baby Doll.otf",24);
   //Create Collections of Objects
 }
 
@@ -80,15 +82,22 @@ void makeButtons() {
 
 void makeNodes() {
   //Plot the nodes on the map
+  nodes = new Node[6];
+  nodes[0] = new Node(250,430,0,-1);
+  nodes[1] = new Node(250,230,1,0);
+  nodes[2] = new Node(500,230,0,1);
+  nodes[3] = new Node(500,645,-1,0);
+  nodes[4] = new Node(300,645,0,-1);
+  nodes[5] = new Node(300,451,1,0);
+  
+  
+  
 }
 
 
 // ===================== DRAW ===========================
 
 void draw() {
-  textFont(basic);
-  textSize(20);
-  text(mouseX + "," + mouseY,mouseX,mouseY -20);
   
   
   
