@@ -26,14 +26,21 @@ boolean mouseReleased;
 boolean wasPressed;
 
 //Buttons
-Button start;
+Button start, nextwave;
+
+//Counters
+int counter = 0;
 
 //Collections of objects
 
-Node[] nodes;
+Node[] nodes; 
+ArrayList<Mob> mobs;
+ArrayList<Tower> towers;
+ArrayList<Bullet> bullets;
 
 //Images and Gifs
 Gif introAnimation;
+PImage arrowhead;
 //Fonts
 PFont basic;
 
@@ -63,10 +70,17 @@ void initializeModes() {
 
 void initializeVariables() {
   //Load Images & Gifs
-
+arrowhead = loadImage("images/arrowhead.png");
   //Load Fonts
 basic = createFont("basicFont/Baby Doll.otf",24);
   //Create Collections of Objects
+  
+ mobs = new ArrayList<Mob>();
+ towers = new ArrayList<Tower>();
+ bullets = new ArrayList<Bullet>();
+  
+  //test Towers
+  towers.add(new Tower(100,100,0,60));
 }
 
 void makeButtons() {
@@ -74,7 +88,8 @@ void makeButtons() {
   start = new Button("START", width/2, 3*height/4, 200, 100, white, black);
 
   //PLAY - Next Wave, To Build Mode
-
+  nextwave = new Button(arrowhead,width-83,120,120,90,green,white);
+    
   //BUILD - To play mode, Buy Sniper, Buy Gun, Buy AoE
 
   //GAMEOVER - Reset

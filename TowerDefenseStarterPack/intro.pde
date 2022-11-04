@@ -7,9 +7,9 @@ void intro() {
     if(start.clicked){
      mode = PLAY;
     }
-    
-    int c = 0;
+  textFont(basic);
     //while
     fill(255);
+    textSize(100);
     text("Tower Defense",width/2,height/2,30);
 }

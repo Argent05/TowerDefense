@@ -12,5 +12,35 @@
 //              mob no matter where they are on the scren.
 
 class Tower {
-  
+  float x, y;
+  int cooldown, threshold;
+
+  Tower(float _x, float _y, int c, int th) {
+
+    x = _x;
+    y = _y;
+    cooldown = c;
+    threshold = th;
+  }
+
+  void show() {
+
+    fill(blue);
+    stroke(black);
+    strokeWeight(4);
+    square(x, y, 40);
+  }
+
+  void act() {
+    if (mobs.size()> 0){
+    cooldown++;
+    if (cooldown == threshold) {
+      cooldown= 0;
+      bullets.add(new Bullet(x, y, 0, -20));//UP   // adds a new bullet at the tower's x and y values
+      bullets.add(new Bullet(x, y, 0, 20));//DOWN
+      bullets.add(new Bullet(x, y, -20, 0));//LEFT
+      bullets.add(new Bullet(x, y, 20, 0));//RIGHT
+    }
+    }
+  }
 }
